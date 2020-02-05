@@ -18,9 +18,9 @@
 */
 
 // put here the number of MPR you are using
-final int NMPR = 1;
+final int NMPR = 4;
 // put here the number of pad used by each MPR
-final int NPADS[] = {3};
+final int NPADS[] = {1,1,1,1};
 // number of graphs will be calculated according to NPADS
 int NGRAPHS; 
 Graph graphs[];
@@ -43,9 +43,6 @@ color filt  = color(240, 0, 0);
 color touch = color(255, 0, 0);
 color lines = color(220, 220, 220, 120);
 color bckgr = color(30, 30, 30);
-
-
-
 
 // SETUP ////////////////////////////////////////////////////////////////////////////
 void setup()

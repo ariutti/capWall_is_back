@@ -6,9 +6,9 @@
 #include <Wire.h>
 #include "Limulo_MPR121.h"
 
-#define FIRST_MPR_ADDR 0x5A
-const int NMPR = 1;
-const int NPADS[] = {12, 1, 1};// {1, 1, 3, 2};
+#define FIRST_MPR_ADDR 0x5C //0x5A
+const int NMPR = 2;
+const int NPADS[] = {1, 1, 1, 1};
 
 
 
@@ -33,12 +33,10 @@ mpr121 mpr[NMPR];
 // and viceversa.
 
 // some booolean variables
-boolean bDebug = true;
+boolean bDebug = false;
 boolean bToV4 = true;
 // the Serial plotter boolean will be set via Processing
 boolean bToPlotter;
-
-
 
 int filt;
 int base;
@@ -91,9 +89,8 @@ void setup()
     mpr[i].cap.setFalling(1, 1, 2, 1);
     mpr[i].cap.setRising( 1, 8, 1, 1);
     mpr[i].cap.setTouched( 1, 1, 8);
-    
-    mpr[i].cap.setThresholds( 24, 5 );
-    //mpr.setDebounces(1, 1);
+    mpr[i].cap.setThresholds( 48, 24 );
+    mpr[i].cap.setDebounces(4, 4);
   }
  
   bToPlotter = false;
